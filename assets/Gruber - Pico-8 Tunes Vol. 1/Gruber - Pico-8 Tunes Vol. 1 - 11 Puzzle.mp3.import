@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn84uj68ey6oi"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 11 Puzzle.mp3-6cad34db656e0ca1d814eb4e97194140.mp3str"
+
+[deps]
+
+source_file="res://assets/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 11 Puzzle.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 11 Puzzle.mp3-6cad34db656e0ca1d814eb4e97194140.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xhrglqdu2i41"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 06 Nostalgia.mp3-6b27496cb1b8d48a6b90ceeccb7fd906.mp3str"
+
+[deps]
+
+source_file="res://assets/explosion-1-a/wind/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 06 Nostalgia.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 06 Nostalgia.mp3-6b27496cb1b8d48a6b90ceeccb7fd906.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

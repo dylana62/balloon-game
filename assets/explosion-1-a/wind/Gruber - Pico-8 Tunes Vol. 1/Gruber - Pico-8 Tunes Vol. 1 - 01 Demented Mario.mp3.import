@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lr5menf3q3f4"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 01 Demented Mario.mp3-7a8b9e2c66f6a47d22e15d404aeb532c.mp3str"
+
+[deps]
+
+source_file="res://assets/explosion-1-a/wind/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 01 Demented Mario.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 01 Demented Mario.mp3-7a8b9e2c66f6a47d22e15d404aeb532c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

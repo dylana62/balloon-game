@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp56l8iqxyukd"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 08 Boss.mp3-d0d0690db3c51e1b4e62f19e44440479.mp3str"
+
+[deps]
+
+source_file="res://assets/explosion-1-a/wind/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 08 Boss.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 08 Boss.mp3-d0d0690db3c51e1b4e62f19e44440479.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

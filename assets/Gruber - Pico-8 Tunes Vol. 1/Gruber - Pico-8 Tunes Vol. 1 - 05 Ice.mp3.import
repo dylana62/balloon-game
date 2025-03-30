@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4kv0ljkrgcef"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 05 Ice.mp3-892c97dd35d6f3402b68fd5b95a534e3.mp3str"
+
+[deps]
+
+source_file="res://assets/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 05 Ice.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 05 Ice.mp3-892c97dd35d6f3402b68fd5b95a534e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

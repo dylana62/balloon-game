@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6rjif3hbnu5o"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 02 Pastoral.mp3-d293e659d5305188c6fa5e168fbba41f.mp3str"
+
+[deps]
+
+source_file="res://assets/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 02 Pastoral.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 02 Pastoral.mp3-d293e659d5305188c6fa5e168fbba41f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

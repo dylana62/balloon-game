@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddb1acxtlqmab"]
+
+[ext_resource type="AudioStream" uid="uid://bkv6ynfomfnn2" path="res://assets/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 07 Dungeon.mp3" id="1_k0s7a"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k0s7a")
+autoplay = true
+bus = &"Music"

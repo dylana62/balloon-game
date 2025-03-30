@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d317bdka2r78p"
+path="res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 09 Evil.mp3-dfc95d42158dc4b6ba6a7f87b661784f.mp3str"
+
+[deps]
+
+source_file="res://assets/explosion-1-a/wind/Gruber - Pico-8 Tunes Vol. 1/Gruber - Pico-8 Tunes Vol. 1 - 09 Evil.mp3"
+dest_files=["res://.godot/imported/Gruber - Pico-8 Tunes Vol. 1 - 09 Evil.mp3-dfc95d42158dc4b6ba6a7f87b661784f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
