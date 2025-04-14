@@ -7,9 +7,10 @@ extends CharacterBody2D
 const SPEED = 300.0
 const ACCEL = 2.0
 const MAX_AIR = 100.0
+const AIR_LOSS = 2.0
 
 var input: Vector2
-var dash = 1
+var isDashing: bool = false
 var air = MAX_AIR
 
 func _ready() -> void:
@@ -26,7 +27,11 @@ func get_input():
 
 func _process(delta: float) -> void:
 	air_bar.value = air
-	air -= delta * 6 * dash
+	
+	if isDashing:
+		air -= delta * AIR_LOSS * 5
+	else:
+		air -= delta * AIR_LOSS
 	
 	if air <= 0:
 		get_node("AnimatedSprite2D").play("explode")
@@ -34,21 +39,20 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	#if not is_on_floor():
-	#	velocity += get_gravity() * delta
-
 	# Handle dash.
 	if Input.is_action_pressed("ui_accept"):
-		dash = 2
+		isDashing = true
 	else:
-		dash = 1
+		isDashing = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var playerInput = get_input()
 	
-	velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
+	if isDashing:
+		velocity = lerp(velocity, playerInput * SPEED * 2, delta * ACCEL * 2)
+	else:
+		velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
 
 	move_and_slide()
 
