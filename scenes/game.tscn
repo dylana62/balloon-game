@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dtqs181pphyih"]
+[gd_scene load_steps=13 format=4 uid="uid://dtqs181pphyih"]
 
 [ext_resource type="PackedScene" uid="uid://gmgs5cp0pd8p" path="res://scenes/player.tscn" id="1_p5q8j"]
 [ext_resource type="Texture2D" uid="uid://dr2qwehrnybov" path="res://assets/industrial.v2 - Copy.png" id="2_hg2dq"]
@@ -451,43 +451,6 @@ texture = ExtResource("2_hg2dq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5prmr")
 
-[sub_resource type="Animation" id="Animation_0it2g"]
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1032, 216), Vector2(1033, -79)]
-}
-
-[sub_resource type="Animation" id="Animation_4w0jt"]
-resource_name = "move"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1109, 216), Vector2(1109, -72)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcftf"]
-_data = {
-"RESET": SubResource("Animation_0it2g"),
-"move": SubResource("Animation_4w0jt")
-}
-
 [sub_resource type="Animation" id="Animation_0oe2j"]
 length = 0.001
 tracks/0/type = "value"
@@ -605,16 +568,13 @@ tile_set = SubResource("TileSet_eobor")
 [node name="saw" parent="Saws" instance=ExtResource("4_bpucb")]
 position = Vector2(1032, 216)
 scale = Vector2(3, 3)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Saws/saw"]
-libraries = {
-"": SubResource("AnimationLibrary_kcftf")
-}
-autoplay = "move"
+MOVING = true
+MOVE_DISTANCE = Vector2(0, -300)
 
 [node name="saw4" parent="Saws" instance=ExtResource("4_bpucb")]
 position = Vector2(326, 156)
 scale = Vector2(4, 4)
+MOVE_DISTANCE = Vector2(0, 300)
 
 [node name="saw7" parent="Saws" instance=ExtResource("4_bpucb")]
 position = Vector2(1602, -19)

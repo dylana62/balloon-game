@@ -4,10 +4,10 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-const SPEED = 300.0
-const ACCEL = 2.0
+@export var SPEED = 300.0
+@export var ACCEL = 2.0
 const MAX_AIR = 100.0
-const AIR_LOSS = 2.0
+@export var AIR_LOSS = 2.0
 
 var input: Vector2
 var isDashing: bool = false
@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var playerInput = get_input()

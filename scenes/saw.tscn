@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxc8ac2bna65d"]
+[gd_scene load_steps=10 format=3 uid="uid://bxc8ac2bna65d"]
 
 [ext_resource type="Texture2D" uid="uid://oe5jv451vk0b" path="res://assets/Meat Saw-Sheet.png" id="1_a202a"]
+[ext_resource type="Script" path="res://scripts/saw.gd" id="1_cajiy"]
 [ext_resource type="PackedScene" uid="uid://6jjvaaj3mdft" path="res://scenes/killzone.tscn" id="2_seaj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_caekv"]
@@ -42,7 +43,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_epr0t"]
 radius = 18.2483
 
-[node name="Saw" type="Node2D"]
+[node name="Saw" type="Area2D"]
+script = ExtResource("1_cajiy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s2kwr")
