@@ -39,15 +39,16 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-	# Handle dash.
-	if Input.is_action_pressed("ui_accept"):
-		isDashing = true
-	else:
-		isDashing = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var playerInput = get_input()
+	
+	# Handle dash.
+	if Input.is_action_pressed("ui_accept") and playerInput != Vector2(0, 0):
+		isDashing = true
+	else:
+		isDashing = false
 	
 	if isDashing:
 		velocity = lerp(velocity, playerInput * SPEED * 2, delta * ACCEL * 2)
