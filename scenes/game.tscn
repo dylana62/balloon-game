@@ -572,7 +572,7 @@ collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(2, -1)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
