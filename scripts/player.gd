@@ -6,12 +6,17 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var ACCEL = 2.0
-const MAX_AIR = 100.0
 @export var AIR_LOSS = 2.0
 
+# Input vars
 var input: Vector2
 var isDashing: bool = false
+
+# Air vars
+const MAX_AIR = 100.0
 var air = MAX_AIR
+
+var wind_push: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	set_air_label()
@@ -50,11 +55,33 @@ func _physics_process(delta: float) -> void:
 		isDashing = false
 	
 	if isDashing:
-		velocity = lerp(velocity, playerInput * SPEED * 2, delta * ACCEL * 2)
+		velocity = lerp(velocity + wind_push, playerInput * SPEED * 2, delta * ACCEL * 2)
 	else:
-		velocity = lerp(velocity, playerInput * SPEED, delta * ACCEL)
+		velocity = lerp(velocity + wind_push, playerInput * SPEED, delta * ACCEL)
 
 	move_and_slide()
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+func _on_wind_zone_body_entered(_body, path):
+	var wind_speed = get_node(path).wind_speed
+	
+	print("entered")
+	print(wind_speed)
+	print(path)
+	wind_push = Vector2(wind_speed, 0.0)
+	
+	match get_node(path).wind_direction:
+		"Up":
+			wind_push = Vector2(0.0, -wind_speed)
+		"Down":
+			wind_push = Vector2(0.0, wind_speed)
+		"Left":
+			wind_push = Vector2(-wind_speed, 0.0)
+		"Right":
+			wind_push = Vector2(wind_speed, 0.0)
+
+
+func _on_wind_zone_body_exited(_body):
+	wind_push = Vector2.ZERO

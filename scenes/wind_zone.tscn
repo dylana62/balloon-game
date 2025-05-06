@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dv1553i2r72ue"]
+[gd_scene load_steps=19 format=3 uid="uid://dhro3myyi36iy"]
 
 [ext_resource type="Texture2D" uid="uid://bmty5irfnjbo7" path="res://assets/explosion-1-a/wind/W401-1.png" id="1_dpknd"]
 [ext_resource type="Script" path="res://scripts/wind_zone.gd" id="1_r11yw"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://di5bcsjwdghxu" path="res://assets/explosion-1-a/wind/W401-15.png" id="15_fod5a"]
 [ext_resource type="Texture2D" uid="uid://bos6qrdmx0v7k" path="res://assets/explosion-1-a/wind/W401-16.png" id="16_5jyr7"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bvb72"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0xh8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -71,12 +71,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 10.0
 }]
 
-[node name="wind zone" type="Node2D"]
+[node name="Wind Zone" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_r11yw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_bvb72")
-frame_progress = 0.74326
+sprite_frames = SubResource("SpriteFrames_m0xh8")
+autoplay = "default"
+frame_progress = 0.10548

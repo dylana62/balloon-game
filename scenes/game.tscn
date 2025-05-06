@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://dtqs181pphyih"]
+[gd_scene load_steps=15 format=4 uid="uid://dtqs181pphyih"]
 
 [ext_resource type="PackedScene" uid="uid://gmgs5cp0pd8p" path="res://scenes/player.tscn" id="1_p5q8j"]
 [ext_resource type="Texture2D" uid="uid://dr2qwehrnybov" path="res://assets/industrial.v2 - Copy.png" id="2_hg2dq"]
 [ext_resource type="AudioStream" uid="uid://bpggusvd4fsad" path="res://assets/Vine Boom Sound Effect (1).mp3" id="2_pcasm"]
 [ext_resource type="PackedScene" uid="uid://bxc8ac2bna65d" path="res://scenes/saw.tscn" id="4_bpucb"]
+[ext_resource type="PackedScene" uid="uid://dhro3myyi36iy" path="res://scenes/wind_zone.tscn" id="5_p8dcw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5prmr"]
 texture = ExtResource("2_hg2dq")
@@ -526,6 +527,9 @@ _data = {
 "move": SubResource("Animation_k67sx")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsb8q"]
+size = Vector2(284, 106)
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_p5q8j")]
@@ -619,3 +623,26 @@ text = "HOLD SPACE TO DASH
 
 DASHING USES MORE AIR"
 horizontal_alignment = 1
+
+[node name="Wind Zone" parent="." instance=ExtResource("5_p8dcw")]
+position = Vector2(246, -39)
+wind_direction = "Right"
+wind_speed = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind Zone"]
+position = Vector2(-39, 10)
+shape = SubResource("RectangleShape2D_rsb8q")
+
+[node name="Wind Zone2" parent="." instance=ExtResource("5_p8dcw")]
+position = Vector2(700, 150)
+wind_direction = "Left"
+wind_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind Zone2"]
+position = Vector2(-39, 10)
+shape = SubResource("RectangleShape2D_rsb8q")
+
+[connection signal="body_entered" from="Wind Zone" to="Player" method="_on_wind_zone_body_entered" binds= [NodePath("/root/Game/Wind Zone")]]
+[connection signal="body_exited" from="Wind Zone" to="Player" method="_on_wind_zone_body_exited"]
+[connection signal="body_entered" from="Wind Zone2" to="Player" method="_on_wind_zone_body_entered" binds= [NodePath("/root/Game/Wind Zone2")]]
+[connection signal="body_exited" from="Wind Zone2" to="Player" method="_on_wind_zone_body_exited"]
