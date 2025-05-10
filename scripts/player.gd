@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var air_bar: ProgressBar = $AirBar
+@onready var air_meter: ProgressBar = Hud.get_node("Air Meter")
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -18,20 +18,13 @@ var air = MAX_AIR
 
 var wind_push: Vector2 = Vector2.ZERO
 
-func _ready() -> void:
-	set_air_label()
-	
-func set_air_label() -> void:
-	pass
-	#air_bar.text = "Air: %s" % air
-
 func get_input():
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	return input.normalized()
 
 func _process(delta: float) -> void:
-	air_bar.value = air
+	air_meter.value = air
 	
 	if isDashing:
 		air -= delta * AIR_LOSS * 5
