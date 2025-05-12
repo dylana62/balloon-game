@@ -533,8 +533,6 @@ size = Vector2(357, 106)
 
 [node name="Game" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("1_p5q8j")]
 z_index = 5
 position = Vector2(-89, 123)
@@ -629,7 +627,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_rsb8q")
 
 [node name="Door" parent="." instance=ExtResource("6_tqt2o")]
-position = Vector2(2418, 123)
+position = Vector2(927, -15)
 scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="Wind Zone" to="Player" method="_on_wind_zone_body_entered" binds= [NodePath("/root/Game/Wind Zone")]]
