@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://dtqs181pphyih"]
+[gd_scene load_steps=16 format=4 uid="uid://dtqs181pphyih"]
 
 [ext_resource type="PackedScene" uid="uid://gmgs5cp0pd8p" path="res://scenes/player.tscn" id="1_p5q8j"]
 [ext_resource type="Texture2D" uid="uid://dr2qwehrnybov" path="res://assets/industrial.v2 - Copy.png" id="2_hg2dq"]
 [ext_resource type="AudioStream" uid="uid://bpggusvd4fsad" path="res://assets/Vine Boom Sound Effect (1).mp3" id="2_pcasm"]
 [ext_resource type="PackedScene" uid="uid://bxc8ac2bna65d" path="res://scenes/saw.tscn" id="4_bpucb"]
 [ext_resource type="PackedScene" uid="uid://dhro3myyi36iy" path="res://scenes/wind_zone.tscn" id="5_p8dcw"]
+[ext_resource type="PackedScene" uid="uid://dvos5tp57s406" path="res://scenes/door.tscn" id="6_tqt2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5prmr"]
 texture = ExtResource("2_hg2dq")
@@ -626,6 +627,10 @@ wind_speed = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wind Zone2"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_rsb8q")
+
+[node name="Door" parent="." instance=ExtResource("6_tqt2o")]
+position = Vector2(2418, 123)
+scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="Wind Zone" to="Player" method="_on_wind_zone_body_entered" binds= [NodePath("/root/Game/Wind Zone")]]
 [connection signal="body_exited" from="Wind Zone" to="Player" method="_on_wind_zone_body_exited"]
