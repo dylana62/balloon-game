@@ -18,6 +18,8 @@ var air = MAX_AIR
 
 var wind_push: Vector2 = Vector2.ZERO
 
+var respawn_started: bool = false
+
 func get_input():
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -31,8 +33,12 @@ func _process(delta: float) -> void:
 	else:
 		air -= delta * AIR_LOSS
 	
-	if air <= 0:
+	# Respawn if player runs out of air
+	if air <= 0 and !respawn_started:
+		respawn_started = true
 		get_node("AnimatedSprite2D").play("explode")
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
 		get_tree().reload_current_scene()
 		
 
@@ -59,10 +65,6 @@ func _on_timer_timeout() -> void:
 
 func _on_wind_zone_body_entered(_body, path):
 	var wind_speed = get_node(path).wind_speed
-	
-	print("entered")
-	print(wind_speed)
-	print(path)
 	wind_push = Vector2(wind_speed, 0.0)
 	
 	match get_node(path).wind_direction:
