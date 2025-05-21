@@ -21,8 +21,8 @@ var wind_push: Vector2 = Vector2.ZERO
 var respawn_started: bool = false
 
 func get_input():
-	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	input.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	return input.normalized()
 
 func _process(delta: float) -> void:
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	var playerInput = get_input()
 	
 	# Handle dash.
-	if Input.is_action_pressed("ui_accept") and playerInput != Vector2(0, 0):
+	if Input.is_action_pressed("dash") and playerInput != Vector2(0, 0):
 		isDashing = true
 	else:
 		isDashing = false
