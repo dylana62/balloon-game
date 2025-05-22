@@ -41,6 +41,10 @@ func _process(delta: float) -> void:
 		await TransitionScreen.on_transition_finished
 		get_tree().reload_current_scene()
 		
+	# Handle pause/unpause
+	if Input.is_action_just_pressed("pause"):
+		PauseMenu.pause()
+		
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.

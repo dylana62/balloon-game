@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Hud="*res://scenes/HUD.tscn"
 TransitionScreen="*res://scenes/transition_screen.tscn"
+PauseMenu="*res://scenes/pause_menu.tscn"
 
 [display]
 
