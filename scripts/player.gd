@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 # Input vars
 var input: Vector2
-var isDashing: bool = false
+var is_dashing: bool = false
 
 # Air vars
 const MAX_AIR = 100.0
@@ -28,7 +28,7 @@ func get_input():
 func _process(delta: float) -> void:
 	air_meter.value = air
 	
-	if isDashing:
+	if is_dashing:
 		air -= delta * AIR_LOSS * 5
 	else:
 		air -= delta * AIR_LOSS
@@ -49,20 +49,29 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var playerInput = get_input()
+	var player_input = get_input()
 	
 	# Handle dash.
-	if Input.is_action_pressed("dash") and playerInput != Vector2(0, 0):
-		isDashing = true
+	if Input.is_action_pressed("dash") and player_input != Vector2(0, 0):
+		is_dashing = true
 	else:
-		isDashing = false
+		is_dashing = false
 	
-	if isDashing:
-		velocity = lerp(velocity + wind_push, playerInput * SPEED * 2, delta * ACCEL * 2)
+	if is_dashing:
+		velocity = lerp(velocity + wind_push, player_input * SPEED * 2, delta * ACCEL * 2)
 	else:
-		velocity = lerp(velocity + wind_push, playerInput * SPEED, delta * ACCEL)
-
-	move_and_slide()
+		velocity = lerp(velocity + wind_push, player_input * SPEED, delta * ACCEL)
+	
+	# Handle movement
+	# If dashing, use move_and_collide() to handle bouncing off walls
+	# Else, need to use move_and_slide()
+	if is_dashing:
+		var collision = move_and_collide(velocity * delta)
+		if collision:
+			print(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal())
+	else:
+		move_and_slide()
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
