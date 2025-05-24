@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://da6bxqpsahkf5"]
 
-[ext_resource type="Script" path="res://scripts/transition_screen.gd" id="1_kei0t"]
+[ext_resource type="Script" uid="uid://b4xh2e1kks7kc" path="res://scripts/transition_screen.gd" id="1_kei0t"]
 
 [sub_resource type="Animation" id="Animation_hahyi"]
 length = 0.001
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m8tcr"]
 _data = {
-"RESET": SubResource("Animation_hahyi"),
-"fade_to_black": SubResource("Animation_itsag"),
-"fade_to_normal": SubResource("Animation_anciq")
+&"RESET": SubResource("Animation_hahyi"),
+&"fade_to_black": SubResource("Animation_itsag"),
+&"fade_to_normal": SubResource("Animation_anciq")
 }
 
 [node name="TransitionScreen" type="CanvasLayer"]
@@ -69,5 +69,5 @@ grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m8tcr")
+&"": SubResource("AnimationLibrary_m8tcr")
 }

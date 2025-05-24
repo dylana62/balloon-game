@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4opshhgb0sjw"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_kfx0s"]
-[ext_resource type="Shader" path="res://shaders/pause_menu.gdshader" id="1_ytbrl"]
+[ext_resource type="Script" uid="uid://8hougricj05v" path="res://scripts/pause_menu.gd" id="1_kfx0s"]
+[ext_resource type="Shader" uid="uid://cvg8saca5kal8" path="res://shaders/pause_menu.gdshader" id="1_ytbrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtm8y"]
 shader = ExtResource("1_ytbrl")
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y5261"]
 _data = {
-"RESET": SubResource("Animation_njs6f"),
-"blur": SubResource("Animation_uhe1u")
+&"RESET": SubResource("Animation_njs6f"),
+&"blur": SubResource("Animation_uhe1u")
 }
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -148,7 +148,7 @@ text = "GAME PAUSED"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 libraries = {
-"": SubResource("AnimationLibrary_y5261")
+&"": SubResource("AnimationLibrary_y5261")
 }
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

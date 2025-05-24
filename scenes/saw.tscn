@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxc8ac2bna65d"]
 
 [ext_resource type="Texture2D" uid="uid://oe5jv451vk0b" path="res://assets/Meat Saw-Sheet.png" id="1_a202a"]
-[ext_resource type="Script" path="res://scripts/saw.gd" id="1_cajiy"]
+[ext_resource type="Script" uid="uid://on5dgr6qa8oq" path="res://scripts/saw.gd" id="1_cajiy"]
 [ext_resource type="PackedScene" uid="uid://6jjvaaj3mdft" path="res://scenes/killzone.tscn" id="2_seaj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_caekv"]
