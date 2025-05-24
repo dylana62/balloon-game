@@ -4,9 +4,10 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-@export var SPEED = 300.0
-@export var ACCEL = 2.0
-@export var AIR_LOSS = 2.0
+@export var SPEED: float = 300.0
+@export var ACCEL: float = 2.0
+@export var AIR_LOSS: float = 2.0
+@export var BOUNCINESS: float = 1.0
 
 # Input vars
 var input: Vector2
@@ -69,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			print(collision.get_normal())
-			velocity = velocity.bounce(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal()) * BOUNCINESS
 	else:
 		move_and_slide()
 
