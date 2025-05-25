@@ -487,8 +487,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jvevp"]
 _data = {
-"RESET": SubResource("Animation_0oe2j"),
-"move": SubResource("Animation_nsddo")
+&"RESET": SubResource("Animation_0oe2j"),
+&"move": SubResource("Animation_nsddo")
 }
 
 [sub_resource type="Animation" id="Animation_neta5"]
@@ -524,8 +524,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gphbn"]
 _data = {
-"RESET": SubResource("Animation_neta5"),
-"move": SubResource("Animation_k67sx")
+&"RESET": SubResource("Animation_neta5"),
+&"move": SubResource("Animation_k67sx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsb8q"]
@@ -573,7 +573,7 @@ scale = Vector2(4, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Saws/saw7"]
 libraries = {
-"": SubResource("AnimationLibrary_jvevp")
+&"": SubResource("AnimationLibrary_jvevp")
 }
 autoplay = "move"
 
@@ -589,7 +589,7 @@ scale = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Saws/saw6"]
 libraries = {
-"": SubResource("AnimationLibrary_gphbn")
+&"": SubResource("AnimationLibrary_gphbn")
 }
 autoplay = "move"
 
