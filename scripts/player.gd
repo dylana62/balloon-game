@@ -38,9 +38,8 @@ func _process(delta: float) -> void:
 	if air <= 0 and !respawn_started:
 		respawn_started = true
 		get_node("AnimatedSprite2D").play("explode")
-		TransitionScreen.transition()
-		await TransitionScreen.on_transition_finished
-		get_tree().reload_current_scene()
+		get_node("AudioStreamPlayer2D").play()
+		Global.handle_death()
 		
 	# Handle pause/unpause
 	if Input.is_action_just_pressed("pause"):
