@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var air_meter: ProgressBar = Hud.get_node("Air Meter")
+@onready var air_meter: ProgressBar = $HUD/AirMeter
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 

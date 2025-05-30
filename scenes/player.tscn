@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://gmgs5cp0pd8p"]
+[gd_scene load_steps=18 format=3 uid="uid://gmgs5cp0pd8p"]
 
 [ext_resource type="Script" uid="uid://5jfeaxaqqdnu" path="res://scripts/player.gd" id="1_uo0bf"]
 [ext_resource type="Texture2D" uid="uid://cx5ev7wh3ugl4" path="res://assets/Hot air Balloon/!$Ballon Flight.png" id="1_v8qx6"]
 [ext_resource type="Texture2D" uid="uid://yn8oenq2muop" path="res://assets/explosion-1-a/spritesheet.png" id="2_xirpf"]
+[ext_resource type="PackedScene" uid="uid://dw6nmpqwfyiwv" path="res://scenes/HUD.tscn" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bihf0"]
 atlas = ExtResource("2_xirpf")
@@ -114,3 +115,5 @@ shape = SubResource("CircleShape2D_g54n5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
+
+[node name="HUD" parent="." instance=ExtResource("4_dqkch")]
