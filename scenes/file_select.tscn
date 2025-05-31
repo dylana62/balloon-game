@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://kt84rm38okp3"]
+
+[ext_resource type="Script" uid="uid://caurfep3vlqk7" path="res://scripts/file_select.gd" id="1_135fs"]
+
+[node name="FileSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_135fs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 362.0
+offset_right = 1273.0
+offset_bottom = 711.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="File 1" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "File 1: NEW"
+
+[node name="File 2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "File 2: NEW"
+
+[node name="File 3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "File 3: NEW"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 137.0
+offset_right = 1142.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 75
+text = "FILE SELECT"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 816.0
+offset_right = 1032.0
+offset_bottom = 893.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/File 1" to="." method="_on_file_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/File 2" to="." method="_on_file_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/File 3" to="." method="_on_file_3_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
