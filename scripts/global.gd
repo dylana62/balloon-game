@@ -37,9 +37,9 @@ func save_game():
 	
 	ResourceSaver.save(save_data, "user://save" + str(file_num) + ".tres")
 
-func load_game(num):
-	var save_data: SaveData = load("user://save" + str(num) + ".tres") as SaveData
-	file_num = num
+func load_game(save_id):
+	var save_data: SaveData = load("user://save" + str(save_id) + ".tres") as SaveData
+	file_num = save_id
 	
 	if save_data != null:
 		floor = save_data.floor
@@ -53,3 +53,8 @@ func load_game(num):
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/game" + str(level) + ".tscn")
+	
+func delete_game(save_id):
+	DirAccess.remove_absolute("user://save" + str(save_id) + ".tres")
+	
+	
