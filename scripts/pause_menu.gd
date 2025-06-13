@@ -16,6 +16,7 @@ func pause():
 	show()
 	get_tree().paused = true
 	anim_player.play("blur")
+	$Control/MarginContainer/VBoxContainer/Resume.grab_focus()
 
 func _on_resume_pressed() -> void:
 	resume()

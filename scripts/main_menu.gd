@@ -1,9 +1,7 @@
 extends Control
 
-#func _on_new_game_pressed() -> void:
-	#TransitionScreen.transition()
-	#await TransitionScreen.on_transition_finished
-	#get_tree().change_scene_to_file("res://scenes/game.tscn")
+func _ready():
+	$MarginContainer/VBoxContainer/Play.grab_focus()
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/file_select.tscn")

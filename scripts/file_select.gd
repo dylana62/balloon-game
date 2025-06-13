@@ -18,6 +18,7 @@ func _ready():
 	save3 = load("user://save3.tres") as SaveData
 	
 	refresh_buttons()
+	file1.grab_focus()
 	
 func refresh_buttons():
 	# Refresh save 1
