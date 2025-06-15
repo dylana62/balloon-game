@@ -613,7 +613,7 @@ horizontal_alignment = 1
 [node name="Wind Zone" parent="." instance=ExtResource("5_t8rk6")]
 position = Vector2(246, -39)
 wind_direction = "Right"
-wind_speed = 20.0
+wind_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wind Zone"]
 position = Vector2(-9.5, 1)
@@ -622,7 +622,7 @@ shape = SubResource("RectangleShape2D_rsb8q")
 [node name="Wind Zone2" parent="." instance=ExtResource("5_t8rk6")]
 position = Vector2(700, 150)
 wind_direction = "Left"
-wind_speed = 10.0
+wind_speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wind Zone2"]
 position = Vector2(1, 0)
