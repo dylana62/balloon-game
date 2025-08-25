@@ -16,9 +16,13 @@ func pause():
 	show()
 	get_tree().paused = true
 	anim_player.play("blur")
+	$Control/MarginContainer/VBoxContainer/Resume.grab_focus()
 
 func _on_resume_pressed() -> void:
 	resume()
 
-func _on_quit_pressed() -> void:
-	get_tree().quit()
+func _on_main_menu_pressed() -> void:
+	resume()
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

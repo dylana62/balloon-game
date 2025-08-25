@@ -2,14 +2,14 @@
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="Air Meter" type="ProgressBar" parent="."]
+[node name="AirMeter" type="ProgressBar" parent="."]
 offset_left = 206.0
 offset_top = 55.0
 offset_right = 708.0
 offset_bottom = 124.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Air Meter"]
+[node name="Label" type="Label" parent="AirMeter"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.008

@@ -130,11 +130,11 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Resume"
 
-[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
-text = "Quit"
+text = "Main Menu"
 
 [node name="Label" type="Label" parent="Control"]
 modulate = Color(1, 1, 1, 0)
@@ -152,4 +152,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

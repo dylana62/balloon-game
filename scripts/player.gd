@@ -1,13 +1,20 @@
 extends CharacterBody2D
 
-@onready var air_meter: ProgressBar = Hud.get_node("Air Meter")
+@onready var air_meter: ProgressBar = $HUD/AirMeter
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+@export_group("Standard Variables")
 @export var SPEED: float = 300.0
-@export var ACCEL: float = 2.0
-@export var AIR_LOSS: float = 2.0
+@export var ACCEL: float = 1200.0
+@export var DECEL: float = 600.0
 @export var BOUNCINESS: float = 1.0
+@export var AIR_LOSS: float = 2.0
+
+@export_group("Dash Variables")
+@export var DASH_SPEED: float = 600.0
+@export var DASH_ACCEL: float = 2400.0
+@export var DASH_AIR_LOSS: float = 10.0
 
 # Input vars
 var input: Vector2
@@ -30,7 +37,7 @@ func _process(delta: float) -> void:
 	air_meter.value = air
 	
 	if is_dashing:
-		air -= delta * AIR_LOSS * 5
+		air -= delta * DASH_AIR_LOSS
 	else:
 		air -= delta * AIR_LOSS
 	
@@ -38,9 +45,8 @@ func _process(delta: float) -> void:
 	if air <= 0 and !respawn_started:
 		respawn_started = true
 		get_node("AnimatedSprite2D").play("explode")
-		TransitionScreen.transition()
-		await TransitionScreen.on_transition_finished
-		get_tree().reload_current_scene()
+		get_node("AudioStreamPlayer2D").play()
+		Global.handle_death()
 		
 	# Handle pause/unpause
 	if Input.is_action_just_pressed("pause"):
@@ -48,20 +54,22 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Get the input direction
 	var player_input = get_input()
 	
 	# Handle dash.
-	if Input.is_action_pressed("dash") and player_input != Vector2(0, 0):
+	if Input.is_action_pressed("dash") and player_input:
 		is_dashing = true
 	else:
 		is_dashing = false
 	
+	# Set player velocity based on if dashing, moving, or not moving
 	if is_dashing:
-		velocity = lerp(velocity + wind_push, player_input * SPEED * 2, delta * ACCEL * 2)
+		velocity = velocity.move_toward(player_input * DASH_SPEED + wind_push, delta * DASH_ACCEL)
+	elif player_input:
+		velocity = velocity.move_toward(player_input * SPEED + wind_push, delta * ACCEL)
 	else:
-		velocity = lerp(velocity + wind_push, player_input * SPEED, delta * ACCEL)
+		velocity = velocity.move_toward(Vector2(0, 0) + wind_push, delta * DECEL)
 	
 	# Handle movement
 	# If dashing, use move_and_collide() to handle bouncing off walls
@@ -69,7 +77,6 @@ func _physics_process(delta: float) -> void:
 	if is_dashing:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
-			print(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal()) * BOUNCINESS
 	else:
 		move_and_slide()
