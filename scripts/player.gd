@@ -1,19 +1,20 @@
 extends CharacterBody2D
 
 @onready var air_meter: ProgressBar = $HUD/AirMeter
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export_group("Standard Variables")
-@export var SPEED: float = 300.0
-@export var ACCEL: float = 1200.0
-@export var DECEL: float = 600.0
+@export var SPEED: float = 200.0
+@export var ACCEL: float = 800.0
+@export var DECEL: float = 400.0
 @export var BOUNCINESS: float = 1.0
 @export var AIR_LOSS: float = 2.0
 
 @export_group("Dash Variables")
-@export var DASH_SPEED: float = 600.0
-@export var DASH_ACCEL: float = 2400.0
+@export var DASH_SPEED: float = 400.0
+@export var DASH_ACCEL: float = 1600.0
 @export var DASH_AIR_LOSS: float = 10.0
 
 # Input vars
@@ -36,6 +37,14 @@ func get_input():
 func _process(delta: float) -> void:
 	air_meter.value = air
 	
+	# Handle sprite flipping
+	var player_input = get_input()
+	if player_input.x < 0:
+		sprite.flip_h = true
+	elif player_input.x > 0:
+		sprite.flip_h = false
+	
+	# Handle air loss
 	if is_dashing:
 		air -= delta * DASH_AIR_LOSS
 	else:

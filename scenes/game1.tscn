@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dtqs181pphyih"]
+[gd_scene load_steps=17 format=4 uid="uid://dtqs181pphyih"]
 
 [ext_resource type="PackedScene" uid="uid://gmgs5cp0pd8p" path="res://scenes/player.tscn" id="1_bcwkp"]
 [ext_resource type="AudioStream" uid="uid://bpggusvd4fsad" path="res://assets/Vine Boom Sound Effect (1).mp3" id="2_8s560"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxc8ac2bna65d" path="res://scenes/saw.tscn" id="4_1kk7j"]
 [ext_resource type="PackedScene" uid="uid://dhro3myyi36iy" path="res://scenes/wind_zone.tscn" id="5_t8rk6"]
 [ext_resource type="PackedScene" uid="uid://dvos5tp57s406" path="res://scenes/door.tscn" id="6_4yk5w"]
+[ext_resource type="PackedScene" uid="uid://blaggye5jn17n" path="res://scenes/flame_trap.tscn" id="7_8s560"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5prmr"]
 texture = ExtResource("3_qm172")
@@ -556,20 +557,17 @@ tile_set = SubResource("TileSet_eobor")
 [node name="Saws" type="Node" parent="."]
 
 [node name="saw" parent="Saws" instance=ExtResource("4_1kk7j")]
-position = Vector2(1032, 216)
-scale = Vector2(3, 3)
+position = Vector2(1033, 214)
 MOVING = true
 MOVE_DISTANCE = Vector2(0, -300)
 
 [node name="saw4" parent="Saws" instance=ExtResource("4_1kk7j")]
 position = Vector2(326, 156)
-scale = Vector2(4, 4)
 MOVE_DISTANCE = Vector2(0, 300)
 
 [node name="saw7" parent="Saws" instance=ExtResource("4_1kk7j")]
 position = Vector2(1602, -19)
 rotation = 1.5708
-scale = Vector2(4, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Saws/saw7"]
 libraries = {
@@ -580,12 +578,10 @@ autoplay = "move"
 [node name="saw5" parent="Saws" instance=ExtResource("4_1kk7j")]
 position = Vector2(694, -9)
 rotation = 3.14159
-scale = Vector2(4, 4)
 
 [node name="saw6" parent="Saws" instance=ExtResource("4_1kk7j")]
 position = Vector2(1427, -200)
 rotation = 3.14159
-scale = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Saws/saw6"]
 libraries = {
@@ -631,6 +627,10 @@ shape = SubResource("RectangleShape2D_rsb8q")
 [node name="Door" parent="." instance=ExtResource("6_4yk5w")]
 position = Vector2(927, -15)
 scale = Vector2(3, 3)
+
+[node name="Flame Trap" parent="." instance=ExtResource("7_8s560")]
+position = Vector2(78, 139)
+ACTIVATED = true
 
 [connection signal="body_entered" from="Wind Zone" to="Player" method="_on_wind_zone_body_entered" binds= [NodePath("/root/Game/Wind Zone")]]
 [connection signal="body_exited" from="Wind Zone" to="Player" method="_on_wind_zone_body_exited"]

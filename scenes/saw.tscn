@@ -1,39 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxc8ac2bna65d"]
+[gd_scene load_steps=9 format=3 uid="uid://bxc8ac2bna65d"]
 
-[ext_resource type="Texture2D" uid="uid://oe5jv451vk0b" path="res://assets/Meat Saw-Sheet.png" id="1_a202a"]
 [ext_resource type="Script" uid="uid://on5dgr6qa8oq" path="res://scripts/saw.gd" id="1_cajiy"]
+[ext_resource type="Texture2D" uid="uid://b6uay1pdvq1mc" path="res://assets/custom-assets/entities/buzzsaw/buzzsaw.png" id="2_846d5"]
 [ext_resource type="PackedScene" uid="uid://6jjvaaj3mdft" path="res://scenes/killzone.tscn" id="2_seaj8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_caekv"]
-atlas = ExtResource("1_a202a")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_161w5"]
+atlas = ExtResource("2_846d5")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53scu"]
-atlas = ExtResource("1_a202a")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxxip"]
+atlas = ExtResource("2_846d5")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6wla"]
-atlas = ExtResource("1_a202a")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbhee"]
-atlas = ExtResource("1_a202a")
-region = Rect2(192, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw68n"]
+atlas = ExtResource("2_846d5")
+region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2kwr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_caekv")
+"texture": SubResource("AtlasTexture_161w5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53scu")
+"texture": SubResource("AtlasTexture_cxxip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h6wla")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbhee")
+"texture": SubResource("AtlasTexture_iw68n")
 }],
 "loop": true,
 "name": &"default",
@@ -41,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epr0t"]
-radius = 18.2483
+radius = 55.0
 
 [node name="Saw" type="Area2D"]
 script = ExtResource("1_cajiy")
@@ -49,7 +42,8 @@ script = ExtResource("1_cajiy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s2kwr")
 autoplay = "default"
-frame_progress = 0.0173413
+frame = 1
+frame_progress = 0.261223
 
 [node name="Killzone" parent="." instance=ExtResource("2_seaj8")]
 
