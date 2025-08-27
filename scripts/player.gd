@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var air_meter: ProgressBar = $HUD/AirMeter
+@onready var air_meter: TextureProgressBar = $HUD/AirMeter
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
