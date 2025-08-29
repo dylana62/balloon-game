@@ -97,12 +97,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev41m"]
-size = Vector2(28, 29)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ev41m"]
 radius = 14.0
 height = 118.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev41m"]
+size = Vector2(28, 28)
 
 [node name="Flame Trap" type="Area2D"]
 collision_mask = 2
@@ -112,17 +112,14 @@ script = ExtResource("1_ev41m")
 sprite_frames = SubResource("SpriteFrames_fq2l2")
 animation = &"off"
 
-[node name="Base collider" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Base collider"]
-position = Vector2(0, 80.5)
-shape = SubResource("RectangleShape2D_ev41m")
-
 [node name="Killzone" parent="." instance=ExtResource("2_6xx6x")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_ev41m")
+
+[node name="BaseCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 80)
+shape = SubResource("RectangleShape2D_ev41m")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

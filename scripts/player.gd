@@ -58,8 +58,8 @@ func _process(delta: float) -> void:
 		Global.handle_death()
 		
 	# Handle pause/unpause
-	if Input.is_action_just_pressed("pause"):
-		PauseMenu.pause()
+	#if Input.is_action_just_pressed("pause"):
+		#PauseMenu.pause()
 		
 
 func _physics_process(delta: float) -> void:
@@ -89,6 +89,12 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.bounce(collision.get_normal()) * BOUNCINESS
 	else:
 		move_and_slide()
+
+func pause_movement():
+	process_mode = PROCESS_MODE_DISABLED
+	
+func unpause_movement():
+	process_mode = PROCESS_MODE_INHERIT
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
