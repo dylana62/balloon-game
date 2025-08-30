@@ -4,8 +4,11 @@ extends Node
 var floor: int = 1
 var level: int = 1
 
+var biscuits = [1, 0, 0, 0]
+
 # Player stats, maybe add more
 var deaths: int = 0
+var times_talked: int = 0
 
 # Save/load variables
 var file_num = 0

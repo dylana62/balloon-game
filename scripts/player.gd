@@ -25,6 +25,8 @@ var is_dashing: bool = false
 const MAX_AIR = 100.0
 var air = MAX_AIR
 
+var biscuits: int = 0
+
 var wind_push: Vector2 = Vector2.ZERO
 
 var respawn_started: bool = false
@@ -95,6 +97,10 @@ func pause_movement():
 	
 func unpause_movement():
 	process_mode = PROCESS_MODE_INHERIT
+	
+func collect_biscuit():
+	biscuits += 1
+	air = MAX_AIR
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
